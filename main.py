@@ -1,7 +1,6 @@
 import sqlite3
 from datetime import date
 import re
-# from utils import check_credential
 
 db = sqlite3.connect('moneyKeeper.db')
 sql = db.cursor()
@@ -20,7 +19,6 @@ options = {
     9: 'Change user account',
     321: 'Delete All Data '
 }
-
 
 
 def menu():
@@ -86,7 +84,6 @@ def main(userId, userName):
         q_select = f"SELECT user_id, user_name, expense_type, strftime('%d', dates) AS Day, strftime('%m', dates) AS Month, strftime('%Y', dates) AS Year, sum(price) FROM  wallet "
         q_gb_order = f" GROUP BY 1, 2, 3 ORDER BY 1, 2, 3 "
         query = q_select + q_filter + q_gb_order
-       # print(query)
         show_statement(query)
         print()
 
@@ -127,7 +124,6 @@ def login_in():
         print(msg)
 
     menu()
-
 
 def sign_in():
     print('Sign in Form')
@@ -180,6 +176,7 @@ def menu_check():
             break
         except:
             print('Oops. Something wrong')
+
 
 if __name__ == '__main__':
     menu_check()

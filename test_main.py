@@ -16,5 +16,6 @@ class TestSuite(unittest.TestCase):
         msg = check_credential(self.username, self.password)
         self.assertEqual(msg, 'TEST this username is already taken')
 
+
 if __name__ == '__main__':
     unittest.main()
